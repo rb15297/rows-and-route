@@ -200,18 +200,24 @@
       const img = media && media.querySelector("img");
       if (vid && media) {
         const poster = vid.getAttribute("poster");
-        if (sceneBg && poster) {
-          sceneBg.style.backgroundImage = `url("${poster}")`;
-        }
         const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (reduce) {
+          if (sceneBg && poster) {
+            sceneBg.style.backgroundImage = `url("${poster}")`;
+          }
           media.setAttribute("hidden", "");
           vid.pause();
           vid.currentTime = 0;
         } else {
+          if (sceneBg) {
+            sceneBg.style.backgroundImage = "none";
+          }
           media.removeAttribute("hidden");
           vid.currentTime = 0;
           vid.play().catch(() => {
+            if (sceneBg && poster) {
+              sceneBg.style.backgroundImage = `url("${poster}")`;
+            }
             media.setAttribute("hidden", "");
           });
         }

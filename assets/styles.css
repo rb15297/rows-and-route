@@ -115,7 +115,7 @@ a { color: var(--primary); }
   text-align: center;
   overflow: hidden;
 }
-.celebrate-scene[hidden] { display: none !important; }
+.celebrate-scene[hidden], .final-scene[hidden] { display: none !important; }
 .lock-panel.success .celebrate-scene:not([hidden]),
 .final-beat.success .final-scene {
   animation: enter 0.35s ease-out;
@@ -318,13 +318,13 @@ body.scene-overlay .scene-bg .celebrate-scene,
 body.scene-overlay .scene-bg .final-scene {
   position: absolute;
   inset: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  border-radius: 0;
-  box-shadow: none;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   overflow: hidden;
   background: transparent;
 }
@@ -333,13 +333,15 @@ body.scene-overlay .scene-bg .celebrate-scene video,
 body.scene-overlay .scene-bg .final-scene img,
 body.scene-overlay .scene-bg .final-scene video {
   display: block;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  aspect-ratio: auto;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: unset !important;
+  object-fit: cover !important;
   object-position: center;
   border-radius: 0;
-  background: transparent;
+  background: transparent !important;
 }
