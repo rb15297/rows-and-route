@@ -263,7 +263,7 @@ body.scene-overlay .scene-bg {
   position: fixed;
   inset: 0;
   background-size: cover;
-  background-position: left center;
+  background-position: center center;
   background-repeat: no-repeat;
   z-index: 0;
 }
